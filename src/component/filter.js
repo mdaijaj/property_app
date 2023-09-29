@@ -1,23 +1,17 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import React from "react";
-// import Slider from "@mui/material/Slider";
 import { Stack, Typography, Slider, TextField, Card } from "@mui/material";
-import Cart from './cart'
 
 
-const FilterPage = ({data, data1} ) => {
+const FilterPage = ({ data, data1 }) => {
   console.log("props", data1)
 
-  // data(prop.data)
-
   const [filterdata, setFilterdata] = useState({ start_date: "", end_date: "", city: "", property_type: "" });
-  const [range, setRange] = React.useState([10, 50]);
   const [minNum, setMinNum] = useState(1000);
   const [maxNum, setMaxNum] = useState(100000);
   const [property_data, setProperty_data] = useState([])
   const [priceRangeValue, setPriceRangeValue] = useState([1000, 10000]);
-  const [searchdata, setSearchdata] = useState([])
   const minmin = 0;
   const maxmax = 50000;
 
@@ -28,7 +22,6 @@ const FilterPage = ({data, data1} ) => {
     setPriceRangeValue(newValue);
   };
 
-  const navigate = useNavigate()
 
   let name, value;
   const handleInput = (e) => {
@@ -37,14 +30,6 @@ const FilterPage = ({data, data1} ) => {
     setFilterdata({ ...filterdata, [name]: value })  //[] dynamic data for
   }
 
-  // const apiCall = async () => {
-  //   const res = await fetch('/api/getall_property');
-  //   const result = await res.json()
-  //   console.log("aijaj", result)
-  //   setProperty_data(props.data)
-
-  // }
-
   // const searchApi = async () => { 
   //   setProperty_data( property_data.data.filter(e => (e.city == filterdata)  ||(e.property_type == filterdata) ||(e.price == priceRangeValue) ||(e.available_date == filterdata)))
   // }
@@ -52,32 +37,6 @@ const FilterPage = ({data, data1} ) => {
   const searchApi = () => {
     console.log("property_data", property_data)
     console.log("filterdata", filterdata)
-
-    // if(filterdata.start_date){
-    //   start_date = new Date(filterdata.start_date);
-    //   end_date = new Date(filterdata.end_date);
-    // }
-
-
-    // Filter the data array based on the date range
-    // start_date = new Date(filterdata.start_date);
-    // end_date = new Date(filterdata.end_date);
-    //     console.log("start_date", start_date)
-    //     console.log("end_date", end_date)
-
-
-    //     let result=property_data.filter(e => 
-    // e.address.city == filterdata.city ||
-    // e.price<maxNum && e.price>minNum //||
-    // e.property_type==filterdata.property_type //|| 
-
-    //       e.available_date >= start_date && e.available_date <= end_date
-
-    //       );
-    //     console.log("result", result)
-
-
-
 
     const start_date = new Date(filterdata.start_date);
     const end_date = new Date(filterdata.end_date);
@@ -93,10 +52,6 @@ const FilterPage = ({data, data1} ) => {
     const isoDateStr = inputDate.toISOString();
     const isoDateStr2 = inputDate2.toISOString();
 
-    console.log("isoDateStr", isoDateStr);
-    console.log("isoDateStr2", isoDateStr2);
-
-
 
     const result = data1.filter((item) =>
       (item.address.city == filterdata.city) //||
@@ -105,20 +60,10 @@ const FilterPage = ({data, data1} ) => {
       // (item.available_date >= isoDateStr) && (item.available_date <= isoDateStr2)
     );
 
-
-
-
-
     console.log("result", result);
-    data(result)   
-     // setSearchdata(result)
-    
+    data(result)
+
   }
-
-
-  // useEffect(() => {
-  //   apiCall()
-  // }, [])
 
   return (
     <>
@@ -135,8 +80,6 @@ const FilterPage = ({data, data1} ) => {
             <option value="Mumbai">Mumbai</option>
           </select>
         </div>
-
-
 
         <div className="col-sm-2">
           <label>Availabe From</label>
