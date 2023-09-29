@@ -32,7 +32,7 @@ const Home = () => {
         <h4>Search Properties for Rent </h4>
       </div>
 
-{console.log("property_data", property_data)}
+      {console.log("property_data", property_data)}
       <FilterPage data1={property_data} data={updateData}/>
       <Cart data={property_data} />
 
