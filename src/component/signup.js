@@ -39,7 +39,7 @@ const Signup = () => {
 
     return (
         <>
-            <div className="container">
+            <div className="container" style={{marginTop: "35px"}}>
                 <div className="row">
                     <div className="col-2"></div>
                     <div className="col-6">

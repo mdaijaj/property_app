@@ -30,10 +30,6 @@ const FilterPage = ({ data, data1 }) => {
     setFilterdata({ ...filterdata, [name]: value })  //[] dynamic data for
   }
 
-  // const searchApi = async () => { 
-  //   setProperty_data( property_data.data.filter(e => (e.city == filterdata)  ||(e.property_type == filterdata) ||(e.price == priceRangeValue) ||(e.available_date == filterdata)))
-  // }
-
   const searchApi = () => {
     console.log("property_data", property_data)
     console.log("filterdata", filterdata)
@@ -54,10 +50,10 @@ const FilterPage = ({ data, data1 }) => {
 
 
     const result = data1.filter((item) =>
-      (item.address.city == filterdata.city) //||
-      // (item.property_type == filterdata.property_type) ||
-      // (item.price < maxNum) && (item.price > minNum) ||
-      // (item.available_date >= isoDateStr) && (item.available_date <= isoDateStr2)
+      (item.address.city == filterdata.city) ||
+      (item.property_type == filterdata.property_type) ||
+      (item.price < maxNum) && (item.price > minNum) ||
+      (item.available_date >= isoDateStr) && (item.available_date <= isoDateStr2)
     );
 
     console.log("result", result);
