@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node --openssl-legacy-provider server.js",
     "dev": "nodemon server.js",
     "build": "npm i"
   },
